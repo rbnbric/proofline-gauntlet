@@ -1,0 +1,8 @@
+PASS  examples       0.0285s
+PASS  contract       0.0281s
+PASS  conservation   0.0526s
+PASS  determinism    0.0293s
+PASS  boundaries     0.0277s
+PASS  efficiency     0.1529s
+RESULT 6/6 gates; verified=True
+REPORT experiment/conformant-report.json

@@ -1,0 +1,14 @@
+PASS  examples       0.0295s
+FAIL  contract       0.0356s
+      AssertionError: ValueError not raised
+      AssertionError: ValueError not raised
+FAIL  conservation   0.0341s
+      AssertionError: [(1, (1, 1), [0, 0], 0), (3, (1, 1), [2, 2], 4), (5, (1, 1), [2, 2], 4), (7, (1, 1), [4, 4], 8), (9, (1, 1), [4, 4], 8)] is not false : conservation failed; first violations=[(1, (1, 1), [0, 0], 0), (3, (1, 1), [2, 2], 4), (5, (1, 1), [2, 2], 4), (7, (1, 1), [4, 4], 8), (9, (1, 1), [4, 4], 8)]; cases examined=244
+FAIL  determinism    0.0373s
+      AssertionError: False is not true : [[2, 2, 2], [2, 2, 2], [2, 2, 2]]
+FAIL  boundaries     0.0274s
+      ZeroDivisionError: division by zero
+      AssertionError: Lists differ: [0, 0, 0] != [1, 0, 0]
+PASS  efficiency     0.0638s
+RESULT 2/6 gates; verified=False
+REPORT experiment/ungated-report.json

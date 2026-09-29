@@ -1,0 +1,50 @@
+{
+  "implementation": "conformant",
+  "verified": true,
+  "passed": 6,
+  "total": 6,
+  "gates": [
+    {
+      "gate": "examples",
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.034,
+      "output": "test_familiar_examples (experiment.tests.test_01_examples.ExampleGate.test_familiar_examples) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+    },
+    {
+      "gate": "contract",
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.0329,
+      "output": "test_invalid_inputs_are_rejected_consistently (experiment.tests.test_02_contract.ContractGate.test_invalid_inputs_are_rejected_consistently) ... ok\ntest_output_shape_and_types (experiment.tests.test_02_contract.ContractGate.test_output_shape_and_types) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "gate": "conservation",
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.0557,
+      "output": "test_no_units_are_lost_or_created (experiment.tests.test_03_conservation.ConservationGate.test_no_units_are_lost_or_created) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.025s\n\nOK\n"
+    },
+    {
+      "gate": "determinism",
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.0331,
+      "output": "test_repeated_calls_and_tie_policy (experiment.tests.test_04_determinism.DeterminismGate.test_repeated_calls_and_tie_policy) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+    },
+    {
+      "gate": "boundaries",
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.0313,
+      "output": "test_indivisible_small_total (experiment.tests.test_05_boundaries.BoundaryGate.test_indivisible_small_total) ... ok\ntest_zero_total_and_zero_weights (experiment.tests.test_05_boundaries.BoundaryGate.test_zero_total_and_zero_weights) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "gate": "efficiency",
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.1636,
+      "output": "test_representative_workload (experiment.tests.test_06_efficiency.EfficiencyGate.test_representative_workload) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.127s\n\nOK\n"
+    }
+  ]
+}

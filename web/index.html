@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Proofline — executable evidence for AI-assisted code</title>
+  <meta name="description" content="Run or replay six deterministic conformance gates against a plausible and corrected Python implementation.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="mast">
+    <div class="wordmark">PROOFLINE</div>
+    <div class="folio">FIELD INSTRUMENT · 01</div>
+  </header>
+  <main>
+    <section class="intro">
+      <div><p class="eyebrow">Executable evidence for AI-assisted code</p><h1>A plausible answer<br>is not evidence.</h1></div>
+      <p class="lede">Apply the same six falsifiable requirements to a familiar-looking implementation and its corrected revision. The claim stays fixed. The evidence determines the verdict.</p>
+    </section>
+
+    <section class="instrument" aria-labelledby="instrument-title">
+      <div class="instrument-head">
+        <div><p class="eyebrow">Controlled comparison</p><h2 id="instrument-title">Choose a specimen.</h2></div>
+        <div id="mode" class="mode">DETECTING EXECUTION MODE</div>
+      </div>
+      <div class="controls">
+        <div class="choices" role="group" aria-label="Implementation">
+          <button class="choice selected" data-implementation="ungated"><span>01</span> Ungated</button>
+          <button class="choice" data-implementation="conformant"><span>02</span> Corrected</button>
+        </div>
+        <button id="run" class="run">Run the same six gates <b>→</b></button>
+      </div>
+      <div class="claim"><span>SUPPLIED CLAIM</span><strong>“Implementation complete.”</strong></div>
+      <div class="result" aria-live="polite">
+        <div><span class="label">EVIDENCE-DERIVED VERDICT</span><strong id="verdict">NOT YET TESTED</strong></div>
+        <div class="score"><span id="score">— / 6</span><small>GATES PASSED</small></div>
+      </div>
+      <ol id="gates" class="gates">
+        <li data-gate="examples"><span>01</span><b>Familiar examples</b><em>WAITING</em><small></small></li>
+        <li data-gate="contract"><span>02</span><b>Input and output contract</b><em>WAITING</em><small></small></li>
+        <li data-gate="conservation"><span>03</span><b>Conservation of total</b><em>WAITING</em><small></small></li>
+        <li data-gate="determinism"><span>04</span><b>Deterministic ties</b><em>WAITING</em><small></small></li>
+        <li data-gate="boundaries"><span>05</span><b>Boundary behavior</b><em>WAITING</em><small></small></li>
+        <li data-gate="efficiency"><span>06</span><b>Efficiency budget</b><em>WAITING</em><small></small></li>
+      </ol>
+      <details id="receipt"><summary>Inspect the machine receipt</summary><pre id="json">Run the gauntlet to produce evidence.</pre></details>
+    </section>
+
+    <section class="method">
+      <p class="eyebrow">Scientific method</p><h2>Treat the claim as a hypothesis.</h2>
+      <ol><li><b>State</b><span>a falsifiable requirement</span></li><li><b>Isolate</b><span>one independent property</span></li><li><b>Test</b><span>under repeatable conditions</span></li><li><b>Revise</b><span>against observed evidence</span></li><li><b>Re-run</b><span>the unchanged experiment</span></li></ol>
+      <p class="language">Python is the specimen, not the boundary. The same structure applies wherever deterministic checks can produce inspectable evidence.</p>
+    </section>
+  </main>
+  <footer><span>PROOFLINE</span><span>Built as a compact, reproducible demonstration.</span></footer>
+  <script src="app.js"></script>
+</body></html>
