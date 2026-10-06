@@ -1,14 +1,16 @@
 const gateRows=[...document.querySelectorAll('#gates li')];
 const runButton=document.querySelector('#run'), modeBadge=document.querySelector('#mode');
+const choiceButtons=[...document.querySelectorAll('.choice')], runError=document.querySelector('#run-error');
 let implementation='ungated', localExecution=false;
 
-document.querySelectorAll('.choice').forEach(button=>button.addEventListener('click',()=>{
+choiceButtons.forEach(button=>button.addEventListener('click',()=>{
   implementation=button.dataset.implementation;
-  document.querySelectorAll('.choice').forEach(x=>x.classList.toggle('selected',x===button));
+  choiceButtons.forEach(x=>x.classList.toggle('selected',x===button));
   reset();
 }));
 
 function reset(){
+  runError.hidden=true;runError.textContent='';
   gateRows.forEach(row=>{row.className='';row.querySelector('em').textContent='WAITING';row.querySelector('small').textContent=''});
   document.querySelector('#verdict').textContent='NOT YET TESTED';document.querySelector('#score').textContent='— / 6';
   document.querySelector('.result').className='result';document.querySelector('#json').textContent='Run the gauntlet to produce evidence.';
@@ -29,7 +31,8 @@ async function obtainReport(){
 }
 
 runButton.addEventListener('click',async()=>{
-  reset();runButton.disabled=true;runButton.textContent=localExecution?'Executing Python…':'Replaying receipt…';
+  reset();runButton.disabled=true;choiceButtons.forEach(x=>x.disabled=true);
+  runButton.textContent=localExecution?'Executing Python…':'Replaying receipt…';
   gateRows[0].className='running';gateRows[0].querySelector('em').textContent='RUNNING';
   try{
     const report=await obtainReport();
@@ -41,8 +44,13 @@ runButton.addEventListener('click',async()=>{
     const result=document.querySelector('.result');result.className=`result ${report.verified?'pass':'fail'}`;
     document.querySelector('#verdict').textContent=report.verified?'VERIFIED':'FAILED CONFORMANCE';document.querySelector('#score').textContent=`${report.passed} / ${report.total}`;
     document.querySelector('#json').textContent=JSON.stringify(report,null,2);
-  }catch(error){document.querySelector('#verdict').textContent='UNKNOWN';document.querySelector('#json').textContent=String(error)}
-  finally{runButton.disabled=false;runButton.innerHTML='Run the same six gates <b>→</b>'}
+  }catch(error){
+    gateRows.forEach(row=>{if(row.classList.contains('running')){row.className='';row.querySelector('em').textContent='WAITING'}});
+    document.querySelector('#verdict').textContent='UNKNOWN';
+    runError.textContent=`Run unavailable: ${error.message||String(error)}`;runError.hidden=false;
+    document.querySelector('#json').textContent=String(error);
+  }
+  finally{runButton.disabled=false;choiceButtons.forEach(x=>x.disabled=false);runButton.innerHTML='Run the same six gates <b>→</b>'}
 });
 
 async function init(){
@@ -50,7 +58,7 @@ async function init(){
   const requested=new URLSearchParams(location.search).get('run');
   if(['ungated','conformant'].includes(requested)){
     implementation=requested;
-    document.querySelectorAll('.choice').forEach(x=>x.classList.toggle('selected',x.dataset.implementation===requested));
+    choiceButtons.forEach(x=>x.classList.toggle('selected',x.dataset.implementation===requested));
     runButton.click();
   }
 }

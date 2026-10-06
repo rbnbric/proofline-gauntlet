@@ -5,6 +5,15 @@ AI-assisted code. A plausible proportional allocator passes familiar examples
 but only 2 of 6 independent gates. A corrected largest-remainder allocator
 passes the same 6 of 6 gates.
 
+## Skill Pack review
+
+The [scope](devpost/scope.md), [product requirements](devpost/prd.md), and
+[technical spec](devpost/spec.md) record a retrospective review and refinement
+using the Devpost Learn Skill Pack on 2026-10-06. They describe the existing
+proof of concept and the error-state improvement made during that review; they
+are drafts for the project owner's review, not a claim that these documents
+preceded the original implementation.
+
 ## Run the browser demo
 
 ```bash
